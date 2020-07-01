@@ -662,10 +662,13 @@ app.post("/upload4", upload.single("file"), (req, res) => {
 });
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-mongoose.connect("mongodb://localhost:27017/egDB", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://daksh:17121975@cluster0.8znrc.mongodb.net/egDB",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 mongoose.set("useCreateIndex", true);
 //defining userSchema-----------------------------------------------------------------------------------------------
 const userSchema = new mongoose.Schema({
