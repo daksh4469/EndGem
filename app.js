@@ -212,7 +212,7 @@ app.get("/course1", (req, res) => {
         console.log("temp: " + temp);
         var dtemp = [];
         var ctemp = [];
-        gfs.find().toArray((err, files) => {
+        gfs.files.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("course1", {
               files: false,
@@ -287,7 +287,7 @@ app.get("/course3", (req, res) => {
         console.log("temp: " + temp);
         var dtemp = [];
         var ctemp = [];
-        gfs.find().toArray((err, files) => {
+        gfs.files.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("user", {
               files: false,
@@ -361,7 +361,7 @@ app.get("/course2", (req, res) => {
         console.log("temp: " + temp);
         var dtemp = [];
         var ctemp = [];
-        gfs.find().toArray((err, files) => {
+        gfs.files.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("user", {
               files: false,
@@ -435,7 +435,7 @@ app.get("/course4", (req, res) => {
         console.log("temp: " + temp);
         var dtemp = [];
         var ctemp = [];
-        gfs.find().toArray((err, files) => {
+        gfs.files.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("user", {
               files: false,
@@ -545,7 +545,7 @@ app.post("/files4/del/:id", (req, res) => {
 app.post("/upload1", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.find().toArray((err, files) => {
+    gfs.files.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
@@ -574,7 +574,7 @@ app.post("/upload1", upload.single("file"), (req, res) => {
 app.post("/upload2", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.find().toArray((err, files) => {
+    gfs.files.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
@@ -604,7 +604,7 @@ app.post("/upload2", upload.single("file"), (req, res) => {
 app.post("/upload3", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.find().toArray((err, files) => {
+    gfs.files.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
@@ -634,7 +634,7 @@ app.post("/upload3", upload.single("file"), (req, res) => {
 app.post("/upload4", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.find().toArray((err, files) => {
+    gfs.files.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
