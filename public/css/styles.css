@@ -179,7 +179,7 @@
 .course-heading {
   font-family: "Montserrat", sans-serif;
   margin-left: 150px;
-  margin-top: 12px;
+  margin-top: 20px;
   font-size: 40px;
 }
 
@@ -267,6 +267,8 @@
   background-color: #bae8e8;
   margin-top: 10px;
   height: 50px;
+  box-shadow: 2.5px 7.5px 20px 0px rgba(36, 69, 73, 0.3);
+  margin-bottom: 27px;
 }
 
 .custom-file {
@@ -402,7 +404,7 @@ input[type="password"] {
 
 .heading-reg {
   font-family: "Montserrat", sans-serif;
-  font-size: 150px;
+  font-size: 120px;
   font-weight: 800;
   color: #ffd803;
   width: 100vw;
@@ -476,6 +478,7 @@ input[type="password"] {
   margin-top: 20px;
   border-radius: 6px;
   height: 5vh;
+  box-shadow: 2.5px 7.5px 20px 0px rgba(36, 69, 73, 0.3);
 }
 
 .nameoffile {

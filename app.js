@@ -103,8 +103,8 @@ app.get("/user", function (req, res) {
       {
         // userId: req.user._id,
       },
-      function (err, fileStats) {
-        var temp = fileStats;
+      function (err, filesDetails) {
+        var temp = filesDetails;
         temp.sort(function (a, b) {
           return a.downloadCount - b.downloadCount;
         });
@@ -207,12 +207,12 @@ app.get("/course1", (req, res) => {
       {
         // userId: req.user._id,
       },
-      function (err, fileStats) {
-        var temp = fileStats;
+      function (err, filesDetails) {
+        var temp = filesDetails;
         console.log("temp: " + temp);
-        var dtemp = [];
-        var ctemp = [];
-        gfs.files.find().toArray((err, files) => {
+        var downl = [];
+        var coursearr = [];
+        gfs.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("course1", {
               files: false,
@@ -234,38 +234,38 @@ app.get("/course1", (req, res) => {
               console.log("temp[i]:" + temp[i]);
               if (temp[i].course == "course1") {
                 console.log("temp[i].course:" + temp[i].course);
-                ctemp.push(temp[i]);
-                console.log("ctemp:" + ctemp);
+                coursearr.push(temp[i]);
+                console.log("coursearr:" + coursearr);
               }
             }
-            for (let i = 0; i < ctemp.length; i++) {
+            for (let i = 0; i < coursearr.length; i++) {
               for (let j = 0; j < files.length; j++) {
                 console.log(
                   "files[j]._id:" +
                     files[j]._id +
                     " and " +
-                    "ctemp[i].fileId: " +
-                    ctemp[i].fileId
+                    "coursearr[i].fileId: " +
+                    coursearr[i].fileId
                 );
-                if (ctemp[i].fileId == files[j]._id) {
-                  dtemp.push(files[j]);
-                  console.log("dtemp: " + dtemp);
+                if (coursearr[i].fileId == files[j]._id) {
+                  downl.push(files[j]);
+                  console.log("downl: " + downl);
                 }
               }
             }
             temp.reverse();
 
-            ctemp.sort(function (a, b) {
+            coursearr.sort(function (a, b) {
               return (
                 new Date(b["uploadDate"]).getTime() -
                 new Date(a["uploadDate"]).getTime()
               );
             });
-            ctemp.reverse();
+            coursearr.reverse();
             res.render("course1", {
-              files: dtemp,
+              files: downl,
               coursename: "Course1",
-              fileinfo: ctemp,
+              fileinfo: coursearr,
             });
           }
         });
@@ -282,12 +282,12 @@ app.get("/course3", (req, res) => {
       {
         // userId: req.user._id,
       },
-      function (err, fileStats) {
-        var temp = fileStats;
+      function (err, filesDetails) {
+        var temp = filesDetails;
         console.log("temp: " + temp);
-        var dtemp = [];
-        var ctemp = [];
-        gfs.files.find().toArray((err, files) => {
+        var downl = [];
+        var coursearr = [];
+        gfs.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("user", {
               files: false,
@@ -308,38 +308,38 @@ app.get("/course3", (req, res) => {
               console.log("temp[i]:" + temp[i]);
               if (temp[i].course == "course3") {
                 console.log("temp[i].course:" + temp[i].course);
-                ctemp.push(temp[i]);
-                console.log("ctemp:" + ctemp);
+                coursearr.push(temp[i]);
+                console.log("coursearr:" + coursearr);
               }
             }
-            for (let i = 0; i < ctemp.length; i++) {
+            for (let i = 0; i < coursearr.length; i++) {
               for (let j = 0; j < files.length; j++) {
                 console.log(
                   "files[j]._id:" +
                     files[j]._id +
                     " and " +
-                    "ctemp[i].fileId: " +
-                    ctemp[i].fileId
+                    "coursearr[i].fileId: " +
+                    coursearr[i].fileId
                 );
-                if (ctemp[i].fileId == files[j]._id) {
-                  dtemp.push(files[j]);
-                  console.log("dtemp: " + dtemp);
+                if (coursearr[i].fileId == files[j]._id) {
+                  downl.push(files[j]);
+                  console.log("downl: " + downl);
                 }
               }
             }
             temp.reverse();
 
-            ctemp.sort(function (a, b) {
+            coursearr.sort(function (a, b) {
               return (
                 new Date(b["uploadDate"]).getTime() -
                 new Date(a["uploadDate"]).getTime()
               );
             });
-            ctemp.reverse();
+            coursearr.reverse();
             res.render("course3", {
-              files: dtemp,
+              files: downl,
               coursename: "Course3",
-              fileinfo: ctemp,
+              fileinfo: coursearr,
             });
           }
         });
@@ -356,12 +356,12 @@ app.get("/course2", (req, res) => {
       {
         //userId: req.user._id,
       },
-      function (err, fileStats) {
-        var temp = fileStats;
+      function (err, filesDetails) {
+        var temp = filesDetails;
         console.log("temp: " + temp);
-        var dtemp = [];
-        var ctemp = [];
-        gfs.files.find().toArray((err, files) => {
+        var downl = [];
+        var coursearr = [];
+        gfs.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("user", {
               files: false,
@@ -382,38 +382,38 @@ app.get("/course2", (req, res) => {
               console.log("temp[i]:" + temp[i]);
               if (temp[i].course == "course2") {
                 console.log("temp[i].course:" + temp[i].course);
-                ctemp.push(temp[i]);
-                console.log("ctemp:" + ctemp);
+                coursearr.push(temp[i]);
+                console.log("coursearr:" + coursearr);
               }
             }
-            for (let i = 0; i < ctemp.length; i++) {
+            for (let i = 0; i < coursearr.length; i++) {
               for (let j = 0; j < files.length; j++) {
                 console.log(
                   "files[j]._id:" +
                     files[j]._id +
                     " and " +
-                    "ctemp[i].fileId: " +
-                    ctemp[i].fileId
+                    "coursearr[i].fileId: " +
+                    coursearr[i].fileId
                 );
-                if (ctemp[i].fileId == files[j]._id) {
-                  dtemp.push(files[j]);
-                  console.log("dtemp: " + dtemp);
+                if (coursearr[i].fileId == files[j]._id) {
+                  downl.push(files[j]);
+                  console.log("downl: " + downl);
                 }
               }
             }
             temp.reverse();
 
-            ctemp.sort(function (a, b) {
+            coursearr.sort(function (a, b) {
               return (
                 new Date(b["uploadDate"]).getTime() -
                 new Date(a["uploadDate"]).getTime()
               );
             });
-            ctemp.reverse();
+            coursearr.reverse();
             res.render("course2", {
-              files: dtemp,
+              files: downl,
               coursename: "Course2",
-              fileinfo: ctemp,
+              fileinfo: coursearr,
             });
           }
         });
@@ -430,12 +430,12 @@ app.get("/course4", (req, res) => {
       {
         // userId: req.user._id,
       },
-      function (err, fileStats) {
-        var temp = fileStats;
+      function (err, filesDetails) {
+        var temp = filesDetails;
         console.log("temp: " + temp);
-        var dtemp = [];
-        var ctemp = [];
-        gfs.files.find().toArray((err, files) => {
+        var downl = [];
+        var coursearr = [];
+        gfs.find().toArray((err, files) => {
           if (!files || files.length === 0) {
             res.render("user", {
               files: false,
@@ -456,38 +456,38 @@ app.get("/course4", (req, res) => {
               console.log("temp[i]:" + temp[i]);
               if (temp[i].course == "course4") {
                 console.log("temp[i].course:" + temp[i].course);
-                ctemp.push(temp[i]);
-                console.log("ctemp:" + ctemp);
+                coursearr.push(temp[i]);
+                console.log("coursearr:" + coursearr);
               }
             }
-            for (let i = 0; i < ctemp.length; i++) {
+            for (let i = 0; i < coursearr.length; i++) {
               for (let j = 0; j < files.length; j++) {
                 console.log(
                   "files[j]._id:" +
                     files[j]._id +
                     " and " +
-                    "ctemp[i].fileId: " +
-                    ctemp[i].fileId
+                    "coursearr[i].fileId: " +
+                    coursearr[i].fileId
                 );
-                if (ctemp[i].fileId == files[j]._id) {
-                  dtemp.push(files[j]);
-                  console.log("dtemp: " + dtemp);
+                if (coursearr[i].fileId == files[j]._id) {
+                  downl.push(files[j]);
+                  console.log("downl: " + downl);
                 }
               }
             }
             temp.reverse();
 
-            ctemp.sort(function (a, b) {
+            coursearr.sort(function (a, b) {
               return (
                 new Date(b["uploadDate"]).getTime() -
                 new Date(a["uploadDate"]).getTime()
               );
             });
-            ctemp.reverse();
+            coursearr.reverse();
             res.render("course4", {
-              files: dtemp,
+              files: downl,
               coursename: "Course4",
-              fileinfo: ctemp,
+              fileinfo: coursearr,
             });
           }
         });
@@ -545,7 +545,7 @@ app.post("/files4/del/:id", (req, res) => {
 app.post("/upload1", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.files.find().toArray((err, files) => {
+    gfs.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
@@ -574,7 +574,7 @@ app.post("/upload1", upload.single("file"), (req, res) => {
 app.post("/upload2", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.files.find().toArray((err, files) => {
+    gfs.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
@@ -604,7 +604,7 @@ app.post("/upload2", upload.single("file"), (req, res) => {
 app.post("/upload3", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.files.find().toArray((err, files) => {
+    gfs.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
@@ -634,7 +634,7 @@ app.post("/upload3", upload.single("file"), (req, res) => {
 app.post("/upload4", upload.single("file"), (req, res) => {
   FilesNew.find(function (err, fileStat) {
     var temp = fileStat;
-    gfs.files.find().toArray((err, files) => {
+    gfs.find().toArray((err, files) => {
       var found = false;
       for (let i = 0; i < files.length; i++) {
         found = false;
